@@ -43,8 +43,8 @@ This module is a pure type-and-constant barrel export. It contains zero runtime 
 
 ### Key Files
 
-| File | Action | Purpose |
-|------|--------|---------|
+| File                 | Action | Purpose                                                         |
+| -------------------- | ------ | --------------------------------------------------------------- |
 | `src/types/index.ts` | Create | Define and export all shared types and the SCENE_ORDER constant |
 
 ### Dependencies
@@ -56,7 +56,13 @@ None. This module has zero imports (no external packages, no project modules).
 **Scene type (from DESIGN_DOC.md Section 4):**
 
 ```typescript
-type Scene = "welcome" | "quiz" | "word-search" | "poetry-canvas" | "letter" | "the-ask";
+type Scene =
+  | "welcome"
+  | "quiz"
+  | "word-search"
+  | "poetry-canvas"
+  | "letter"
+  | "the-ask";
 
 const SCENE_ORDER = [
   "welcome",

@@ -36,18 +36,18 @@ Each utility module is a standalone barrel export with zero cross-dependencies b
 
 ### Key Files
 
-| File | Action | Purpose |
-|------|--------|---------|
-| `src/lib/haptics.ts` | Create | Capacitor haptics abstraction layer |
+| File                   | Action | Purpose                                       |
+| ---------------------- | ------ | --------------------------------------------- |
+| `src/lib/haptics.ts`   | Create | Capacitor haptics abstraction layer           |
 | `src/lib/constants.ts` | Create | Quiz data, word search config, static content |
-| `src/lib/sms.ts` | Create | SMS deep-link launcher |
+| `src/lib/sms.ts`       | Create | SMS deep-link launcher                        |
 
 ### Dependencies
 
-| Package | Version | Import |
-|---------|---------|--------|
+| Package              | Version  | Import                                                                         |
+| -------------------- | -------- | ------------------------------------------------------------------------------ |
 | `@capacitor/haptics` | `^8.0.0` | `import { Haptics, ImpactStyle, NotificationStyle } from "@capacitor/haptics"` |
-| `@capacitor/core` | `^8.0.0` | `import { Capacitor } from "@capacitor/core"` |
+| `@capacitor/core`    | `^8.0.0` | `import { Capacitor } from "@capacitor/core"`                                  |
 
 ### Implementation Details
 
@@ -63,8 +63,10 @@ export const haptic = {
   light: () => isNative && Haptics.impact({ style: ImpactStyle.Light }),
   medium: () => isNative && Haptics.impact({ style: ImpactStyle.Medium }),
   heavy: () => isNative && Haptics.impact({ style: ImpactStyle.Heavy }),
-  success: () => isNative && Haptics.notification({ type: NotificationStyle.Success }),
-  error: () => isNative && Haptics.notification({ type: NotificationStyle.Error }),
+  success: () =>
+    isNative && Haptics.notification({ type: NotificationStyle.Success }),
+  error: () =>
+    isNative && Haptics.notification({ type: NotificationStyle.Error }),
   vibrate: () => isNative && Haptics.vibrate(),
   pattern: async (count: number, delay: number) => {
     if (!isNative) return;

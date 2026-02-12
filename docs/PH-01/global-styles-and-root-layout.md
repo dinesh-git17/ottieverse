@@ -37,17 +37,17 @@ The root layout is a server component that loads fonts, sets metadata, and rende
 
 ### Key Files
 
-| File | Action | Purpose |
-|------|--------|---------|
-| `src/app/globals.css` | Modify | Add Tailwind import, browser resets, scene color custom properties |
-| `src/app/layout.tsx` | Modify | Replace Geist fonts with Inter/Caveat/Playfair Display, update metadata, configure viewport |
+| File                  | Action | Purpose                                                                                     |
+| --------------------- | ------ | ------------------------------------------------------------------------------------------- |
+| `src/app/globals.css` | Modify | Add Tailwind import, browser resets, scene color custom properties                          |
+| `src/app/layout.tsx`  | Modify | Replace Geist fonts with Inter/Caveat/Playfair Display, update metadata, configure viewport |
 
 ### Dependencies
 
-| Package | Version | Import |
-|---------|---------|--------|
-| `next` | `^16.1.0` | `next/font/google` |
-| `tailwindcss` | `^4.0.0` | `@import "tailwindcss"` in CSS |
+| Package       | Version   | Import                         |
+| ------------- | --------- | ------------------------------ |
+| `next`        | `^16.1.0` | `next/font/google`             |
+| `tailwindcss` | `^4.0.0`  | `@import "tailwindcss"` in CSS |
 
 ### Implementation Details
 
