@@ -5,18 +5,41 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,css}": [
+      "biome check --write --no-errors-on-unmatched"
+    ]
   },
   "dependencies": {
+    "@capacitor/core": "8",
+    "@capacitor/haptics": "8",
+    "@capacitor/ios": "8",
+    "motion": "^12.34.0",
     "next": "16.1.0",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "sharp",
+      "unrs-resolver"
+    ]
+  },
   "devDependencies": {
+    "@biomejs/biome": "2.3",
+    "@capacitor/cli": "8",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

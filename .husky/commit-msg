@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+set -e
+
+# ── Protocol Zero: Commit Message Validation ─────────────────────────
+# Scans the commit message for forbidden AI attribution patterns.
+# Reference: CLAUDE.md Section 1
+# ─────────────────────────────────────────────────────────────────────
+
+./tools/protocol-zero.sh --commit-msg-file "$1" || {
+  echo ""
+  echo "BLOCKED: Commit message contains Protocol Zero violations."
+  echo "Rewrite the message without AI attribution markers."
+  exit 1
+}
