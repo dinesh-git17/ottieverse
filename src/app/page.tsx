@@ -1,3 +1,6 @@
-export default function Page() {
-  return <div className="p-10 font-bold text-2xl">OttieVerse Ready</div>;
+import { Experience } from "@/components/experience";
+
+/** Root page mounting the scene experience orchestrator. */
+export default function Page(): React.ReactNode {
+  return <Experience />;
 }

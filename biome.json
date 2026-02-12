@@ -24,6 +24,9 @@
         "useExhaustiveDependencies": "warn",
         "noUnusedImports": "error",
         "noUnusedVariables": "error"
+      },
+      "performance": {
+        "noImgElement": "off"
       }
     }
   },
