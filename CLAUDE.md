@@ -125,15 +125,15 @@ A skill is **invalid** and MUST be rejected if:
 
 ### 3.6 Installed Skills Registry
 
-| Skill                | Path                                  | Purpose                                  |
-| -------------------- | ------------------------------------- | ---------------------------------------- |
-| `skill-creator`      | `.claude/skills/skill-creator/`       | Meta-skill for creating compliant skills |
-| `typescript-writing` | `.claude/skills/typescript-writing/`  | Production-grade TypeScript generation   |
-| `tailwind-writing`   | `.claude/skills/tailwind-writing/`    | High-polish Tailwind v4 generation       |
-| `motion-engineering` | `.claude/skills/motion-engineering/`  | Physics-based animation & interaction    |
-| `mobile-native`      | `.claude/skills/mobile-native/`       | iOS fidelity & Capacitor standards       |
-| `react-architecture` | `.claude/skills/react-architecture/`  | React 19 & Next.js 16 component patterns |
-| `epic-writer`        | `.claude/skills/epic-writer/`         | Phase-to-Epic generation                 |
+| Skill                | Path                                 | Purpose                                  |
+| -------------------- | ------------------------------------ | ---------------------------------------- |
+| `skill-creator`      | `.claude/skills/skill-creator/`      | Meta-skill for creating compliant skills |
+| `typescript-writing` | `.claude/skills/typescript-writing/` | Production-grade TypeScript generation   |
+| `tailwind-writing`   | `.claude/skills/tailwind-writing/`   | High-polish Tailwind v4 generation       |
+| `motion-engineering` | `.claude/skills/motion-engineering/` | Physics-based animation & interaction    |
+| `mobile-native`      | `.claude/skills/mobile-native/`      | iOS fidelity & Capacitor standards       |
+| `react-architecture` | `.claude/skills/react-architecture/` | React 19 & Next.js 16 component patterns |
+| `epic-writer`        | `.claude/skills/epic-writer/`        | Phase-to-Epic generation                 |
 
 **Usage:**
 
@@ -455,7 +455,7 @@ When generating planning artifacts, Claude Code MUST:
 
 ### 9.3 Zero Ambiguity Rule
 
-Epics MUST define the *how*, not just the *what*:
+Epics MUST define the _how_, not just the _what_:
 
 - Every file path MUST reference a real path from the Project Structure or Phase-to-File Mapping
 - Every animation value MUST be sourced from DESIGN_DOC.md
@@ -577,7 +577,7 @@ Epics MUST define the *how*, not just the *what*:
 ### 13.1 GitHub Repository Configuration
 
 **Repository:** `dinesh-git17/ottieverse`
-**Visibility:** Private
+**Visibility:** Public
 **Default Branch:** `main`
 
 **Enabled Features:**
