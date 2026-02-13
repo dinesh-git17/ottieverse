@@ -1,8 +1,8 @@
 /** Phone number for SMS deep link — pending from Dinesh. */
 const SMS_PHONE = "" as const;
 
-/** Pre-filled SMS message body — pending from Dinesh. */
-const SMS_BODY = "" as const;
+/** Pre-filled SMS message body for the celebration CTA. */
+const SMS_BODY = "YES. Always and FOREVER. No refunds No exchanges" as const;
 
 /**
  * Opens the native Messages app with a pre-filled recipient and body.
