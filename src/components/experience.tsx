@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { useCallback, useReducer } from "react";
 import { Quiz } from "@/components/scenes/quiz";
 import { Welcome } from "@/components/scenes/welcome";
+import { WordSearch } from "@/components/scenes/word-search";
 import { FloatingHearts } from "@/components/ui/floating-hearts";
 import { SceneTransition } from "@/components/ui/scene-transition";
 import type { Scene } from "@/types";
@@ -106,7 +107,7 @@ function Experience(): React.ReactNode {
       case "quiz":
         return <Quiz key="quiz" onComplete={handleComplete} />;
       case "word-search":
-        return <StubScene key="word-search" name="word-search" onComplete={handleComplete} />;
+        return <WordSearch key="word-search" onComplete={handleComplete} />;
       case "poetry-canvas":
         return <StubScene key="poetry-canvas" name="poetry-canvas" onComplete={handleComplete} />;
       case "letter":
