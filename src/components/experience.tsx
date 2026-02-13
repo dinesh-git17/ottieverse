@@ -1,8 +1,10 @@
 "use client";
 
-import { motion } from "motion/react";
 import { useCallback, useReducer } from "react";
+import { Letter } from "@/components/scenes/letter";
+import { PoetryCanvas } from "@/components/scenes/poetry-canvas";
 import { Quiz } from "@/components/scenes/quiz";
+import { TheAsk } from "@/components/scenes/the-ask";
 import { Welcome } from "@/components/scenes/welcome";
 import { WordSearch } from "@/components/scenes/word-search";
 import { FloatingHearts } from "@/components/ui/floating-hearts";
@@ -16,20 +18,6 @@ import { SCENE_ORDER } from "@/types";
 function assertNever(value: never): never {
   throw new Error(`Unexpected value: ${JSON.stringify(value)}`);
 }
-
-// ---------- Spring preset ----------
-
-/**
- * Default spring physics for scene enter/exit transitions.
- *
- * Placeholder values pending device validation — DESIGN_DOC.md Section 4
- * describes transitions qualitatively, not with exact stiffness/damping.
- */
-const SPRING_SCENE = {
-  type: "spring",
-  stiffness: 300,
-  damping: 30,
-} as const;
 
 // ---------- State machine ----------
 
@@ -53,35 +41,6 @@ function experienceReducer(state: ExperienceState, action: ExperienceAction): Ex
     default:
       return assertNever(action.type);
   }
-}
-
-// ---------- Stub scene ----------
-
-type StubSceneProps = {
-  readonly name: string;
-  readonly onComplete: () => void;
-};
-
-/** Temporary placeholder scene for state machine testing. */
-function StubScene({ name, onComplete }: StubSceneProps): React.ReactNode {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={SPRING_SCENE}
-      className="flex min-h-dvh flex-col items-center justify-center gap-6"
-    >
-      <p className="text-2xl font-bold">{name}</p>
-      <button
-        type="button"
-        onClick={onComplete}
-        className="rounded-lg bg-white/20 px-6 py-3 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-      >
-        Next
-      </button>
-    </motion.div>
-  );
 }
 
 // ---------- Orchestrator ----------
@@ -109,11 +68,11 @@ function Experience(): React.ReactNode {
       case "word-search":
         return <WordSearch key="word-search" onComplete={handleComplete} />;
       case "poetry-canvas":
-        return <StubScene key="poetry-canvas" name="poetry-canvas" onComplete={handleComplete} />;
+        return <PoetryCanvas key="poetry-canvas" onComplete={handleComplete} />;
       case "letter":
-        return <StubScene key="letter" name="letter" onComplete={handleComplete} />;
+        return <Letter key="letter" onComplete={handleComplete} />;
       case "the-ask":
-        return <StubScene key="the-ask" name="the-ask" onComplete={handleComplete} />;
+        return <TheAsk key="the-ask" onComplete={handleComplete} />;
       default:
         return assertNever(state.currentScene);
     }
