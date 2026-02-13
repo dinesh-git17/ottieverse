@@ -545,7 +545,7 @@ Epics MUST define the _how_, not just the _what_:
 
 - **No Silent Refactors:** Do not "clean up" components, styles, or utilities outside the requested scope. Touch only what is asked.
 - **Architecture Protection:** Agents are FORBIDDEN from altering the scene state machine order, the Capacitor config, or the static export pipeline without explicit architectural review.
-- **Dependency Management:** All packages MUST remain at pinned versions. Do not upgrade, add, or remove dependencies unless instructed.
+- **Dependency Management:** All packages MUST remain at pinned versions. Do not upgrade, add, or remove dependencies unless instructed. If a task requires an unlisted dependency, use `AskUserQuestion` to request explicit approval before installing.
 - **Skill Compliance:** All skill operations MUST use the Skill Creator skill. All TypeScript operations MUST use the typescript-writing skill. All styling operations MUST use the tailwind-writing skill. All animations MUST use the motion-engineering skill. All component/hook creation MUST use the react-architecture skill. No exceptions.
 
 ### 11.2 Research & Verification
@@ -837,7 +837,7 @@ Execution of any task within this repository constitutes a binding agreement to 
 
 **Static Export Clause:** Any attempt to introduce SSR, API routes, middleware, or server-side data fetching is a governance violation. This is a static Capacitor app. All logic runs client-side.
 
-**Dependency Clause:** Any attempt to add, remove, or upgrade dependencies without explicit instruction is a governance violation. The stack defined in `DESIGN_DOC.md` Section 10 is ratified and locked.
+**Dependency Clause:** Any attempt to add, remove, or upgrade dependencies without explicit user approval is a governance violation. The stack defined in `DESIGN_DOC.md` Section 10 is ratified and locked. When a task requires an unlisted dependency, Claude Code MUST use `AskUserQuestion` to request explicit approval before installing — do not silently add or silently refuse.
 
 **Skills Enforcement Clause:** Any attempt to create, modify, or propose skills outside the Skill Creator workflow is a governance violation. Claude Code MUST refuse such requests and redirect to the proper workflow.
 

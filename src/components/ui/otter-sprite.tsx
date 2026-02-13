@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 
@@ -19,16 +20,16 @@ type OtterSpriteProps = {
 /**
  * Frame-cycling otter sprite with spring-based entrance animation.
  *
- * Cycles through provided image paths at the specified FPS. Single-frame
- * arrays render statically without a timer. All frames are preloaded on
- * mount to prevent flicker during transitions.
+ * All frames mount in the DOM for instant browser decode. Only the
+ * active frame is visible; inactive frames use `invisible` to stay
+ * pre-rendered but hidden. Crossfade is intentionally avoided because
+ * transparent PNGs bleed through stacked opacity layers.
  *
  * @param props - Component properties.
  */
 function OtterSprite({ frames, fps, alt, className }: OtterSpriteProps): React.ReactNode {
   const [frameIndex, setFrameIndex] = useState(0);
 
-  // Cycle frames at 1000/fps interval — skip for single-frame arrays
   useEffect(() => {
     if (frames.length <= 1) return;
 
@@ -39,14 +40,6 @@ function OtterSprite({ frames, fps, alt, className }: OtterSpriteProps): React.R
     return () => clearInterval(interval);
   }, [frames.length, fps]);
 
-  // Preload all frame images to prevent flicker during transitions
-  useEffect(() => {
-    for (const src of frames) {
-      const img = new Image();
-      img.src = src;
-    }
-  }, [frames]);
-
   return (
     <motion.div
       initial={{ scale: 0.8, opacity: 0 }}
@@ -54,7 +47,21 @@ function OtterSprite({ frames, fps, alt, className }: OtterSpriteProps): React.R
       transition={SPRING_OTTER_ENTRANCE}
       className={className}
     >
-      <img src={frames[frameIndex]} alt={alt} draggable={false} />
+      <div className="relative h-full w-full">
+        {frames.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt={i === frameIndex ? alt : ""}
+            draggable={false}
+            className={clsx(
+              "h-full w-full object-contain",
+              i === 0 ? "relative" : "absolute inset-0",
+              i !== frameIndex && "invisible",
+            )}
+          />
+        ))}
+      </div>
     </motion.div>
   );
 }

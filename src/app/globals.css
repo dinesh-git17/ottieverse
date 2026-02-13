@@ -1,24 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  /* Scene 0-1: Cool / Playful */
-  --color-welcome-start: #0d9488;
-  --color-welcome-end: #7c3aed;
+  /* Scene 0-1: Romantic / Intimate */
+  --color-welcome-start: #1a0a1e;
+  --color-welcome-end: #db2777;
 
   /* Scene 2: Warm / Engaged */
-  --color-search-start: #7c3aed;
-  --color-search-end: #e11d48;
+  --color-search-start: #831843;
+  --color-search-end: #f43f5e;
 
   /* Scene 3: Soft / Creative */
-  --color-poetry-start: #f59e0b;
-  --color-poetry-end: #f43f5e;
+  --color-poetry-start: #be185d;
+  --color-poetry-end: #fb923c;
 
   /* Scene 4: Deep / Emotional */
-  --color-letter-start: #881337;
-  --color-letter-end: #1e1b4b;
+  --color-letter-start: #4c0519;
+  --color-letter-end: #9f1239;
 
   /* Scene 5: Bright / Celebration */
-  --color-ask-start: #fda4af;
+  --color-ask-start: #fecdd3;
   --color-ask-end: #fbbf24;
 }
 
@@ -43,6 +43,7 @@ body {
   overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
+  background-color: var(--color-welcome-start);
 }
 
 input,
