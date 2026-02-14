@@ -71,7 +71,7 @@ function PoetryCanvas({ onComplete }: PoetryCanvasProps): React.ReactNode {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={SPRING_SCENE}
-      className="relative flex min-h-dvh w-full flex-col items-center bg-linear-to-b from-poetry-start to-poetry-end px-6 pt-safe-top pb-safe-bottom text-white"
+      className="relative flex min-h-full w-full flex-col items-center bg-linear-to-b from-poetry-start to-poetry-end px-6 pt-safe-top pb-safe-bottom text-white"
     >
       <div className="flex w-full max-w-md flex-1 flex-col items-center justify-center gap-6">
         {/* Prompt */}

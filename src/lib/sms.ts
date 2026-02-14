@@ -1,5 +1,5 @@
 /** Phone number for SMS deep link — pending from Dinesh. */
-const SMS_PHONE = "" as const;
+const SMS_PHONE = "+14378792066" as const;
 
 /** Pre-filled SMS message body for the celebration CTA. */
 const SMS_BODY = "YES. Always and FOREVER. No refunds No exchanges" as const;

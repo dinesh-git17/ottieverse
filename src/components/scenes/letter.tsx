@@ -37,7 +37,7 @@ function Letter({ onComplete }: LetterProps): React.ReactNode {
       exit={{ opacity: 0, y: -20 }}
       transition={SPRING_SCENE}
       onClick={phase === "revealing" ? revealNext : undefined}
-      className="h-dvh w-full overflow-y-auto bg-linear-to-b from-letter-start to-letter-end"
+      className="h-full w-full overflow-y-auto bg-linear-to-b from-letter-start to-letter-end"
     >
       <div className="mx-auto flex max-w-[600px] flex-col items-center gap-6 px-6 py-12 pt-safe-top pb-safe-bottom">
         <AnimatePresence>

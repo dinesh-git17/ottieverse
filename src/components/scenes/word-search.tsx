@@ -59,40 +59,42 @@ function WordSearch({ onComplete }: WordSearchProps): React.ReactNode {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={SPRING_SCENE}
-      className="relative flex min-h-dvh w-full flex-col items-center bg-linear-to-b from-search-start to-search-end px-4 pt-12 pb-8 text-white"
+      onPointerUp={onPointerUp}
+      className="relative flex min-h-full w-full flex-col items-center bg-linear-to-b from-search-start to-search-end px-4 pt-12 pb-8 pt-safe-top pb-safe-bottom text-white"
     >
       {/* Scene title */}
       <h1 className="mb-6 font-[family-name:var(--font-playfair)] text-2xl font-bold text-white">
         Word Search
       </h1>
 
-      {/* Grid */}
-      <Grid
-        grid={grid}
-        dragPhase={dragPhase}
-        foundWords={gamePhase.foundWords}
-        revealedCells={isRevealing ? grid.hiddenMessageCells : EMPTY_CELLS}
-        onPointerDown={onPointerDown}
-        onPointerEnter={onPointerEnter}
-        onPointerUp={onPointerUp}
-      />
+      {/* Grid + word list — centered vertically */}
+      <div className="flex flex-1 flex-col items-center justify-center">
+        <Grid
+          grid={grid}
+          dragPhase={dragPhase}
+          foundWords={gamePhase.foundWords}
+          revealedCells={isRevealing ? grid.hiddenMessageCells : EMPTY_CELLS}
+          onPointerDown={onPointerDown}
+          onPointerEnter={onPointerEnter}
+        />
 
-      {/* Word list */}
-      <div className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-2">
-        {WORD_SEARCH_CONFIG.words.map((entry) => {
-          const isFound = foundWordSet.has(entry.word);
-          return (
-            <span
-              key={entry.word}
-              className={clsx(
-                "text-sm font-medium uppercase",
-                isFound ? "text-white/30 line-through" : "text-white/60",
-              )}
-            >
-              {entry.word}
-            </span>
-          );
-        })}
+        {/* Word list */}
+        <div className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-2">
+          {WORD_SEARCH_CONFIG.words.map((entry) => {
+            const isFound = foundWordSet.has(entry.word);
+            return (
+              <span
+                key={entry.word}
+                className={clsx(
+                  "text-sm font-medium uppercase",
+                  isFound ? "text-white/30 line-through" : "text-white/60",
+                )}
+              >
+                {entry.word}
+              </span>
+            );
+          })}
+        </div>
       </div>
 
       {/* Tap to continue */}
@@ -110,7 +112,7 @@ function WordSearch({ onComplete }: WordSearchProps): React.ReactNode {
       )}
 
       {/* Otter companion */}
-      <div className="absolute bottom-4 right-4 size-24">
+      <div className="absolute bottom-4 left-4 size-24">
         <AnimatePresence mode="wait">
           <OtterSprite
             key={isOtterExcited ? "excited" : "peeking"}

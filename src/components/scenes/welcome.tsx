@@ -44,7 +44,7 @@ function Welcome({ onComplete }: WelcomeProps): React.ReactNode {
       exit={{ opacity: 0, y: -20 }}
       transition={SPRING_SCENE}
       onClick={handleTap}
-      className="flex min-h-dvh w-full cursor-pointer select-none flex-col items-center justify-center bg-linear-to-b from-welcome-start to-welcome-end text-white"
+      className="flex min-h-full w-full cursor-pointer select-none flex-col items-center justify-center bg-linear-to-b from-welcome-start to-welcome-end pt-safe-top pb-safe-bottom text-white"
     >
       <OtterSprite
         frames={WELCOME_OTTER_FRAMES}

@@ -8,13 +8,13 @@ import type { DragPhase } from "./use-drag-select";
 
 /** Warm-palette highlight colors for found words, assigned in discovery order. */
 const WORD_HIGHLIGHT_COLORS = [
-  "bg-rose-400/40",
-  "bg-amber-400/40",
-  "bg-orange-400/40",
-  "bg-pink-400/40",
-  "bg-fuchsia-400/40",
-  "bg-red-400/40",
-  "bg-yellow-400/40",
+  "bg-rose-400/60",
+  "bg-amber-400/60",
+  "bg-orange-400/60",
+  "bg-pink-400/60",
+  "bg-fuchsia-400/60",
+  "bg-red-400/60",
+  "bg-yellow-400/60",
 ] as const;
 
 /** Spring preset for cell tap feedback. */
@@ -37,7 +37,6 @@ type GridProps = {
   readonly revealedCells: readonly CellPosition[];
   readonly onPointerDown: (cell: CellPosition) => void;
   readonly onPointerEnter: (cell: CellPosition) => void;
-  readonly onPointerUp: () => void;
 };
 
 // ---------- Helpers ----------
@@ -64,7 +63,6 @@ function Grid({
   revealedCells,
   onPointerDown,
   onPointerEnter,
-  onPointerUp,
 }: GridProps): React.ReactNode {
   const activeCells = useMemo(() => {
     if (dragPhase.type !== "selecting") return new Set<string>();
@@ -86,10 +84,7 @@ function Grid({
   }, [revealedCells]);
 
   return (
-    <div
-      className="grid aspect-square w-full max-w-[min(85dvw,400px)] select-none grid-cols-10 gap-1 touch-none"
-      onPointerUp={onPointerUp}
-    >
+    <div className="grid aspect-square w-full max-w-[min(92dvw,440px)] select-none grid-cols-10 gap-1 touch-none">
       {grid.cells.flat().map((cell) => {
         const key = cellKey(cell.row, cell.col);
         const isActive = activeCells.has(key);
@@ -118,7 +113,7 @@ function Grid({
               />
             )}
             {isActive && (
-              <div className="pointer-events-none absolute inset-0 rounded-md bg-rose-400/30" />
+              <div className="pointer-events-none absolute inset-0 rounded-md bg-white/50" />
             )}
             <span className="relative z-10">{cell.letter}</span>
           </motion.div>

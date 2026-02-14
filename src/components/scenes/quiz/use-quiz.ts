@@ -149,7 +149,7 @@ function useQuiz(onComplete: () => void): UseQuizReturn {
           } else {
             dispatch({ type: "ADVANCE" });
           }
-        }, 1200);
+        }, 600);
       } else {
         haptic.error();
         dispatch({ type: "ANSWER_WRONG" });
