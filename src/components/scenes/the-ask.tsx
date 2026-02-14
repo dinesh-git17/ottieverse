@@ -89,7 +89,7 @@ function TheAsk({ onComplete }: TheAskProps): React.ReactNode {
       exit={{ opacity: 0, y: -20 }}
       transition={SPRING_SCENE}
       onPointerMove={noStage === 5 ? handlePointerMove : undefined}
-      className="relative flex min-h-dvh w-full flex-col items-center bg-linear-to-b from-ask-start to-ask-end px-6 pt-safe-top pb-safe-bottom"
+      className="relative flex min-h-full w-full flex-col items-center bg-linear-to-b from-ask-start to-ask-end px-6 pt-safe-top pb-safe-bottom"
     >
       <motion.div
         key={shakeCount}

@@ -69,7 +69,7 @@ function Quiz({ onComplete }: QuizProps): React.ReactNode {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
       transition={SPRING_SCENE}
-      className="relative flex min-h-dvh w-full flex-col items-center bg-linear-to-b from-welcome-start to-welcome-end px-6 pt-16 pb-8 text-white"
+      className="relative flex min-h-full w-full flex-col items-center bg-linear-to-b from-welcome-start to-welcome-end px-6 pt-16 pb-8 pt-safe-top pb-safe-bottom text-white"
     >
       {/* Progress dots */}
       <div
